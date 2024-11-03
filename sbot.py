@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 token = environ["TOKEN"]
+with open('setting.json', 'r', encoding='utf-8') as jfile:
+    jdata = json.load(jfile)
 
 intents = discord.Intents.default()
 intents.members = True
