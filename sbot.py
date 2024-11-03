@@ -1,11 +1,11 @@
 import discord
 import json
-import os
+from os import environ
 from discord.ext import commands
 from dotenv import load_dotenv
 
 load_dotenv()
-token = os.getenv["TOKEN"]
+token = environ["TOKEN"]
 with open('setting.json', 'r', encoding='utf-8') as jfile:
     jdata = json.load(jfile)
 
