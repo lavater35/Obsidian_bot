@@ -28,4 +28,4 @@ async def on_member_remove(member):
     channel = bot.get_channel(jdata[int("leaves")])
     await channel.send(f"{member} only could make Cobblestone QAQ")
 
-bot.run(jdata["token"])
+bot.run(token)
