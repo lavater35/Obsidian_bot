@@ -1,5 +1,9 @@
 import discord
+import json
 from discord.ext import commands
+
+with open('setting.json', 'r', encoding='utf-8') as jfile:
+    jdata = json.load(jfile)
 
 intents = discord.Intents.default()
 intents.members = True
@@ -20,4 +24,4 @@ async def on_member_remove(member):
     channel = bot.get_channel(1302565209973592085)
     await channel.send(f"{member} only could make Cobblestone QAQ")
 
-bot.run("MTMwMjU0MDI0Mzk0NTI1OTA4OA.Gjc_Pe.dY61n9yReYgxRI6n4U7P5p_n-omJjMaz8z3ki4")
+bot.run(jdata["token"])
