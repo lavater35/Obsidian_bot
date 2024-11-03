@@ -1,6 +1,8 @@
 import discord
 import json
+import os
 from discord.ext import commands
+from dotenv import load_dotenv
 
 with open('setting.json', 'r', encoding='utf-8') as jfile:
     jdata = json.load(jfile)
@@ -16,12 +18,12 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    channel = bot.get_channel(1302535749295542354)
+    channel = bot.get_channel(jdata[int("welcomes")])
     await channel.send(f"{member} wants to make obsidian.")
 
 @bot.event
 async def on_member_remove(member):
-    channel = bot.get_channel(1302565209973592085)
+    channel = bot.get_channel(jdata[int("leaves")])
     await channel.send(f"{member} only could make Cobblestone QAQ")
 
 bot.run(jdata["token"])
